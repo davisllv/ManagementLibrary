@@ -32,7 +32,15 @@ public class LibraryController : ManagementLibraryBaseController
         [FromBody] RequestUpdateBooksJson obj)
     {
         Books books = new Books();
-        books.UpdateBook(Id, obj);
+        List<Books> listBooks = books.ListBook();
+
+        int findedIndex = listBooks.FindIndex(x => x.Id == Id);
+        
+        if(findedIndex < 0)
+            return NotFound(new { Message = $"Book with ID {Id} not found." });
+
+        
+        books.UpdateBook(findedIndex, obj);
         return Ok("Livro Alterado");
     }
 }

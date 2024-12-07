@@ -1,5 +1,6 @@
 ﻿using ManagementLibrary.Communication.Request;
 using ManagementLibrary.Communication.Response;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ManagementLibrary.Models;
 
@@ -31,18 +32,15 @@ public class Books
         return new ResponseInsertBooksJson() { Id = values.Id, Title = values.Title };
     }
 
-    public void UpdateBook(Guid Id, RequestUpdateBooksJson obj)
+    public void UpdateBook(int index, RequestUpdateBooksJson obj)
     {
-        BooksElements = BooksElements.Where(w => w.Id == Id).Select(w =>
-        {
-            Id = w.Id;
-            Title = obj.Title;
-            Author = obj.Author;
-            Gender = obj.Gender;
-            Price = obj.Price;
-            QuantityStock = obj.QuantityStock;
-            return w;
-        }).ToList();
+        Books findedBook = BooksElements[index];
+
+        findedBook.Title = !string.IsNullOrEmpty(obj.Title) ? obj.Title : findedBook.Title;
+        findedBook.Author = !string.IsNullOrEmpty(obj.Author) ? obj.Author :  findedBook.Author;
+        findedBook.Gender = !string.IsNullOrEmpty(obj.Gender) ? obj.Gender : findedBook.Gender;
+        findedBook.Price = obj.Price ?? findedBook.Price;
+        findedBook.QuantityStock = obj.QuantityStock ?? findedBook.QuantityStock;
     }
 
     public List<Books> ListBook()
