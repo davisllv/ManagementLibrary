@@ -1,0 +1,44 @@
+[
+  {
+    "Title": "The Great Adventure",
+    "Author": "John Smith",
+    "Gender": "Fiction",
+    "Price": 29.99,
+    "QuantityStock": 120
+  },
+  {
+    "Title": "Mystery of the Lost City",
+    "Author": "Emma Brown",
+    "Gender": "Mystery",
+    "Price": 24.50,
+    "QuantityStock": 85
+  },
+  {
+    "Title": "A Journey Through Time",
+    "Author": "Michael Green",
+    "Gender": "Science Fiction",
+    "Price": 35.75,
+    "QuantityStock": 60
+  },
+  {
+    "Title": "Culinary Secrets",
+    "Author": "Sophia White",
+    "Gender": "Cooking",
+    "Price": 18.99,
+    "QuantityStock": 150
+  },
+  {
+    "Title": "History of Civilizations",
+    "Author": "William Black",
+    "Gender": "History",
+    "Price": 45.00,
+    "QuantityStock": 40
+  },
+  {
+    "Title": "The Art of Mindfulness",
+    "Author": "Olivia Gray",
+    "Gender": "Self-help",
+    "Price": 22.45,
+    "QuantityStock": 70
+  }
+]
